@@ -68,8 +68,8 @@ def buscar_registro_ponto():
     try:
         driver = iniciar_driver()
         entrar_pagina_historico(driver)
-        registro_ponto = RegistroPonto(buscar_primeira_entrada(driver), buscar_primeira_saida(driver), \
-                            buscar_segunda_entrada(driver), buscar_segunda_saida(driver))
+        registro_ponto = RegistroPonto(str(buscar_primeira_entrada(driver)), str(buscar_primeira_saida(driver)), \
+                            str(buscar_segunda_entrada(driver)), str(buscar_segunda_saida(driver)))
         fechar_driver(driver)
         return registro_ponto
     except:
@@ -132,6 +132,7 @@ def entrar_pagina_historico(driver):
         time.sleep(5)
         hoje_formatado = datetime.today().strftime('%d-%m-%Y')
         driver.find_element(By.XPATH,"//a[contains(@href, '#/meu_ponto/" + hoje_formatado + "/historico')]").click()
+        time.sleep(5)
     except:
         print("Erro ao entrar na pagina de historico do pontomais")
     
