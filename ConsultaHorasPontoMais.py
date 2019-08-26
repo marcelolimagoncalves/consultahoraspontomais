@@ -81,7 +81,7 @@ logging.info("email_senha: " + email_senha)
 # Configuração do intervalo de tempo em minutos para cada verificação no site pontomais
 intervalo_verificacao = 10
 try:
-    intervalo_verificacao = int(os.environ['INTERVALO_VERIFICACAO'],2) 
+    intervalo_verificacao = int(os.environ['INTERVALO_VERIFICACAO'])
 except:
     pass
 logging.info("intervalo_verificacao: " + str(intervalo_verificacao))
